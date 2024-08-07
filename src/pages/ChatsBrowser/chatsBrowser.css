@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Press_Start_2P';
+    src: local('Press_Start_2P'), url('../../assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf'), format('ttf');
+}
+
+@font-face {
+    font-family: 'Roboto_Mono';
+    src: local('Roboto_Mono'), url('../../assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf'), format('ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.browser-window{
+    background-color: #C0C0C0;
+    border: outset 4px;
+    padding: 14px;
+}
+
+.browser-header{
+    background: rgb(8,1,113);
+background: linear-gradient(129deg, rgba(8,1,113,1) 0%, rgba(66,127,170,1) 100%);
+    padding: 0.5rem 0.6rem;
+}
