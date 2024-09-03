@@ -65,14 +65,17 @@ function ChatsBrowser() {
                 style={{ filter: "drop-shadow(0 3px 1px rgba(0,0,0,0.25)" }}
               />
             </button>
-            <button
-              style={{
-                cursor: "pointer",
-                textShadow: "rgba(0,0,0,0.25) 0 3px 1px",
-              }}
-            >
-              <p>X</p>
-            </button>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <button
+                    style={{
+                    cursor: "pointer",
+                    textShadow: "rgba(0,0,0,0.25) 0 3px 1px",
+                    borderColor: "#ffffff",
+                  }}
+                    >
+                   <p>X</p>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="browser-chats">

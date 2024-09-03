@@ -1,14 +1,14 @@
 @font-face {
     font-family: 'Press_Start_2P';
-    src: local('Press_Start_2P'), url('../../assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf'), format('ttf');
+    src: local('Press_Start_2P'), url('../../assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Roboto_Mono';
-    src: local('Roboto_Mono'), url('../../assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf'), format('ttf');
+    src: local('Roboto_Mono'), url('../../assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf') format('truetype');
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +19,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
 .press-start-2p-regular {
     font-family: "Press_Start_2P", system-ui;
@@ -27,16 +27,17 @@
     font-style: normal;
 }  
 
-.container{
+.container {
     background-color: #008080;
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem; 
 }
 
-.title{
+.title {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,12 +45,14 @@
     color: #8B0000;
 }
 
-.title h1{
-    font-size: 98px;
+.title h1 {
+    font-size: 6rem; 
+    text-align: center;
 }
 
-.title h2{
-    font-size: 50px;
+.title h2 {
+    font-size: 3rem;
+    text-align: center;
 }
 
 .entrar {
@@ -66,18 +69,75 @@
     font-family: 'Roboto_Mono', monospace;
     border-width: 4px;
     font-size: 20px;
+    border-color: aliceblue;
 }
 
-.entrar button:hover {
-    cursor: pointer;
-}
-
-.entrar textarea{
+.entrar textarea {
     padding: 1.4rem 0 0 1rem;
     background-color: #B5B5B5;
     border: inset;
     border-width: 4px;
     resize: none;
     font-family: 'Roboto_Mono', monospace;
-    font-size: 20px;
+    font-size: 1.25rem;
+    width: 100%; 
+    max-width: 500px; 
+}
+
+@media (max-width: 1200px) {
+    .title h1 {
+        font-size: 5rem; 
+    }
+
+    .title h2 {
+        font-size: 2.5rem; 
+    }
+
+    .entrar button {
+        font-size: 1rem;
+        padding: 0.8em 1.6em; 
+    }
+
+    .entrar textarea {
+        font-size: 1rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 3rem; 
+    }
+
+    .title h2 {
+        font-size: 1.5rem; 
+    }
+
+    .entrar button {
+        font-size: 0.875rem; 
+        padding: 0.6em 1.2em; 
+    }
+
+    .entrar textarea {
+        font-size: 0.875rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 2rem; 
+    }
+
+    .title h2 {
+        font-size: 1.2rem; 
+    }
+
+    .entrar button {
+        font-size: 0.75rem; 
+        padding: 0.5em 1em; 
+    }
+
+    .entrar textarea {
+        font-size: 0.75rem; 
+        padding: 0.8rem; 
+    }
 }
