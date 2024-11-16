@@ -18,7 +18,7 @@
     background-color: #C0C0C0;
     border: outset 4px;
     padding: 14px;
-    width: 45vw;
+    width: 575px;
     height: 88vh;
 }
 
@@ -48,14 +48,15 @@
     font-family: 'Press_Start_2P';
 }
 
-.tab-options button p{
-    text-shadow: rgba(0, 0, 0, 0.25 1px 5px 0);
-}
-
 .tab-options{
     display: flex;
     justify-content: space-around;
-    width: 116px;
+    width: 155px;
+}
+
+.tab-options button p{
+    text-shadow: rgba(0, 0, 0, 0.25 1px 5px 0);
+    font-family: 'Press_Start_2P';
 }
 
 .tab-1{

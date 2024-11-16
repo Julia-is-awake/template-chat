@@ -4,10 +4,10 @@ import api from "../../services/api";
 import "./chatsBrowser.css";
 import { Link } from "react-router-dom";
 
-import mediumGlobe from "../../../public/mediumGlobe.png";
-import tabOption from "../../../public/tabOption.svg";
-import privateRoom from "../../../public/privateRoom.png";
-import publicRoom from "../../../public/publicRoom.png";
+import mediumGlobe from "/mediumGlobe.png";
+import tabOption from "/tabOption.svg";
+import privateRoom from "/privateRoom.png";
+import publicRoom from "/publicRoom.png";
 
 function ChatsBrowser() {
   const navigate = useNavigate();
@@ -25,18 +25,40 @@ function ChatsBrowser() {
 
   useEffect(() => {
     getData();
-  }, [user]);
+  }, [user, chats]);
 
   const getData = async () => {
-    const { data } = await api.get("/salas", {
-      headers: {
-        token: user.token,
-        idUser: user.idUser,
-        nick: user.nick,
-      },
-    });
-    console.log(data);
-    setChats(data);
+    try {
+      const { data } = await api.get("/salas", {
+        headers: {
+          token: user.token,
+          idUser: user.idUser,
+          nick: user.nick,
+        },
+      });
+      console.log(data);
+      setChats(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const sairDaSala = async () => {
+    if (confirm("Tem certeza que deseja sair do chat?")) {
+      try {
+        await api.delete("/sair", {
+          headers: {
+            token: user.token,
+            idUser: user.idUser,
+            nick: user.nick,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      localStorage.setItem("sessao", "");
+      navigate("/");
+    }
   };
 
   return (
@@ -65,11 +87,22 @@ function ChatsBrowser() {
                 style={{ filter: "drop-shadow(0 3px 1px rgba(0,0,0,0.25)" }}
               />
             </button>
+            <button>
+              <p
+                style={{
+                  cursor: "pointer",
+                  textShadow: "rgba(0,0,0,0.25) 0 2px 1px",
+                }}
+              >
+                +
+              </p>
+            </button>
             <button
               style={{
                 cursor: "pointer",
                 textShadow: "rgba(0,0,0,0.25) 0 3px 1px",
               }}
+              onClick={sairDaSala}
             >
               <p>X</p>
             </button>
