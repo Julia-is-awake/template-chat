@@ -19,7 +19,7 @@ function Chat() {
 
   useEffect(() => {
     if (!localStorage.getItem("sessao")) {
-      navigate("/");
+      navigate("/template-chat");
     } else {
       setUser(JSON.parse(localStorage.getItem("sessao")));
     }
@@ -71,12 +71,12 @@ function Chat() {
       msg: inputValue,
       idSala: ChatId,
     };
-    
+
     const newViewMessage = {
       nick: user.nick,
       msg: inputValue,
       timestamp: Date.now(),
-    }
+    };
 
     try {
       await api.post("/sala/mensagem", newMessage, {
@@ -96,20 +96,42 @@ function Chat() {
     setInputValue("");
   };
 
+  // const sairDaSala = async () => {
+  //   if (confirm("Tem certeza que deseja sair da sala?") === true) {
+  //     try {
+  //       await api.put(`/sala/sair?idsala=${ChatId}`, {
+  //         headers: {
+  //           token: user.token,
+  //           idUser: user.iduser,
+  //           nick: user.nick,
+  //         },
+  //       });
+  //     } catch (error) {
+  //       console.log(error.response);
+  //     }
+  //     navigate("/template-chat/chats");
+  //   }
+  // };
+
   const sairDaSala = async () => {
     if (confirm("Tem certeza que deseja sair da sala?") === true) {
       try {
-        await api.put(`/sala/sair?idsala=${ChatId}`, {
-          headers: {
-            token: user.token,
-            idUser: user.idUser,
-            nick: user.nick,
-          },
-        });
+        const userData = JSON.parse(localStorage.getItem("sessao"));
+        const headers = createHeaders(userData);
+
+        const response = await api.put(
+          `/sala/sair?idsala=${ChatId}`,
+          {},
+          { headers }
+        );
+        console.log(response);
+        setSalaSelecionada(null);
+        setIdSalaSelecionada(null);
+        setMensagens([]);
       } catch (error) {
-        console.log(error.response);
+        console.log(error);
       }
-      navigate("/chats");
+      navigate("/template-chat/chats");
     }
   };
 

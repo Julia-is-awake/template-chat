@@ -17,7 +17,7 @@ function ChatsBrowser() {
 
   useEffect(() => {
     if (!localStorage.getItem("sessao")) {
-      navigate("/");
+      navigate("/template-chat");
     } else {
       setUser(JSON.parse(localStorage.getItem("sessao")));
     }
@@ -25,7 +25,7 @@ function ChatsBrowser() {
 
   useEffect(() => {
     getData();
-  }, [user, chats]);
+  }, [user]);
 
   const getData = async () => {
     try {
@@ -57,7 +57,7 @@ function ChatsBrowser() {
         console.log(error);
       }
       localStorage.setItem("sessao", "");
-      navigate("/");
+      navigate("/template-chat");
     }
   };
 
@@ -119,7 +119,7 @@ function ChatsBrowser() {
                   />
                 </div>
                 <p>{chat.nome}</p>
-                <Link to={`/chat/${chat._id}`}>Entrar</Link>
+                <Link to={`/template-chat/chat/${chat._id}`}>Entrar</Link>
               </div>
             ))}
         </div>

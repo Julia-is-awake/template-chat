@@ -22,7 +22,7 @@ function Home() {
       };
       console.log(data);
       localStorage.setItem("sessao", JSON.stringify(data));
-      navigate("chats");
+      navigate("/template-chat/chats");
     } catch (error) {
       console.log(error.response.data);
     }
