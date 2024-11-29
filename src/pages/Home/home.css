@@ -45,27 +45,27 @@
 }
 
 .title h1{
-    font-size: 98px;
+    font-size: 8vw;
 }
 
 .title h2{
-    font-size: 50px;
+    font-size: 5vw;
 }
 
 .entrar {
     display: flex;
     justify-content: center;
-    margin-top: 57px;
+    margin-top: 3vw;
 }
 
 .entrar button {
     border-style: outset;
-    padding: 1em 2em;
-    margin-left: 25px;
+    padding: 2.5vw 2vw;
+    margin-left: 2vw;
     background-color: #B5B5B5;
     font-family: 'Roboto_Mono', monospace;
     border-width: 4px;
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 22px);;
 }
 
 .entrar button:hover {
@@ -73,11 +73,11 @@
 }
 
 .entrar textarea{
-    padding: 1.4rem 0 0 1rem;
+    padding: 2.5vw 0 0 2vw;
     background-color: #B5B5B5;
     border: inset;
     border-width: 4px;
     resize: none;
     font-family: 'Roboto_Mono', monospace;
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 22px);;
 }

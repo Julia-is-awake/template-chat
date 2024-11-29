@@ -18,7 +18,8 @@
     background-color: #C0C0C0;
     border: outset 4px;
     padding: 14px;
-    width: 575px;
+    max-width: 100%;
+    min-width: auto;
     height: 88vh;
 }
 
